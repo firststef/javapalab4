@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Hospital implements Comparable<Hospital> {
+public class Hospital implements Comparable<Hospital>, Serializable {
     private String name;
     private int capacity;
 

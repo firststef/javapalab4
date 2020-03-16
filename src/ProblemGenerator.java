@@ -4,6 +4,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import com.github.javafaker.Faker;
 
+/**
+ * Generates random Problems and BonusProblems
+ */
 public class ProblemGenerator {
     public Problem generate(){
         Faker faker = new Faker();
@@ -73,6 +76,11 @@ public class ProblemGenerator {
         return new BonusProblem(p.getResidentList(), p.getHospitalList(), p.getResidentPreferences(), hospitalPreferences2);
     }
 
+    /**
+     * Generates a random Integer from 1 to 100001
+     * @param maxInt
+     * @return
+     */
     public int getInt(int maxInt){
         return (int) (Math.random() * 100001 % maxInt + 1);
     }

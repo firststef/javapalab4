@@ -1,6 +1,12 @@
 import javafx.util.Pair;
 import java.util.*;
 
+/**
+ * Specifications:
+ * - an unassigned resident makes a “proposal” to the best current hospital on its list;
+ *  - if the hospital is not full, accept it; otherwise check to see if this resident is better than the bottom of the accepted list
+ *  – if it is, reject the bottom one and accept this one;
+ */
 public class GaleShapleyAlgorithm implements Algorithm {
     public List<Pair<Hospital, Resident>> solve(Problem p) {
         List<Resident> residents = p.getResidentList();

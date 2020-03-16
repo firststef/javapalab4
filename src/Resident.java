@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Resident {
+public class Resident implements Serializable {
     public String name;
     private Hospital hospital;
 

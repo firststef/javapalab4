@@ -41,6 +41,8 @@ public class Main {
         residentList.stream().filter(res -> residentPreferences.get(res).containsAll(Arrays.asList(h[0], h[2]))).forEach(System.out::println);
         hospitalSet.stream().filter(hos -> hospitalPreferences.get(hos).get(0).equals(r[0])).forEach(System.out::println);*/
 
+        //Test de functionalitate:
+
         Resident[] r = IntStream.rangeClosed(0, 3).mapToObj(i -> new Resident("R" + i) ).toArray(Resident[]::new);
         Hospital[] h = IntStream.rangeClosed(0, 2).mapToObj(i -> new Hospital("H" + i, 2) ).toArray(Hospital[]::new);
         h[0].setCapacity(1);
@@ -65,13 +67,24 @@ public class Main {
         Algorithm a = new GaleShapleyAlgorithm();
         List<Pair<Hospital, Resident>> matchings = a.solve(p);
 
+        //Prin codul de mai sus s-a rezolvat problema din enuntul laboratorului
+
+        //Testare generator
+
         ProblemGenerator pg = new ProblemGenerator();
         Problem p1 = pg.generate();
 
         List<Pair<Hospital, Resident>> matchings2 = a.solve(p1);
 
+        //Testare generator bonus
+
         BonusProblem bb = pg.generateBonus();
-        a.solveBonus(bb);
+
+        for (int i = 0; i < 3; i++){
+            BonusProblem cb = new BonusProblem(bb);
+            a.solveBonus(cb);
+            System.out.println();
+        }
 
         System.out.println(p);
     }
