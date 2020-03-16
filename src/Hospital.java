@@ -6,6 +6,8 @@ public class Hospital implements Comparable<Hospital> {
     private String name;
     private int capacity;
 
+    List<Resident> residents = new ArrayList<>();
+
     public Hospital(String name, int capacity) {
         this.name = name;
         this.capacity = capacity;
@@ -49,5 +51,25 @@ public class Hospital implements Comparable<Hospital> {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public List<Resident> getResidents() {
+        return residents;
+    }
+
+    public void setResidents(List<Resident> residents) {
+        this.residents = residents;
+    }
+
+    public void addResident(Resident r){
+        residents.add(r);
+    }
+
+    public void removeResident(Resident r){
+        residents.remove(r);
+    }
+
+    public boolean isFree(){
+        return capacity - residents.size() != 0;
     }
 }
